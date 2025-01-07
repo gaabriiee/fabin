@@ -9,5 +9,13 @@ public class Item {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", desc='" + desc + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
 }
