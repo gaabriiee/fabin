@@ -1,24 +1,27 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Cashier {
-    String name;
-    ArrayList<Item> menu;
+    private HashMap<String, Item> menuHashMap;
 
-    public Cashier(String name){
-        this.name = name;
-        this.menu = new ArrayList<>();
+    public Cashier(){
+        this.menuHashMap = new HashMap<>();
     }
 
-    public boolean registerItem(String name, double price){
-        this.menu.add(new Item(name, price));
-        return true;
+    public String registerItem(String name, double price){
+//        Put if condition later...
+        Item item = new Item(name, price);
+        this.menuHashMap.put(name, item);
+        return "Sucess";
     }
 
-    public void printItems(){
-        for (Item item : menu){
-            System.out.println(item);
-        }
+    public String editItem(String name){
+//        Put optional parameters...
+        this.menuHashMap.get(name).setName(name);
+        return "Sucess";
     }
 
-
+    public String removeItem(String name){
+        this.menuHashMap.remove(name);
+        return "Sucess";
+    }
 }
