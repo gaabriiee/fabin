@@ -1,9 +1,10 @@
 import java.util.HashMap;
 
-public class Cashier {
+public class Store {
     private HashMap<String, Item> menuHashMap;
+    private HashMap<Integer, Order> orderHashMap;
 
-    public Cashier(){
+    public Store(){
         this.menuHashMap = new HashMap<>();
     }
 
@@ -13,6 +14,12 @@ public class Cashier {
             return "Already in the menu";
         }
         this.menuHashMap.put(name, item);
+        return "Sucess";
+    }
+
+    public String editItem(String name, String newname, double price){
+        this.menuHashMap.get(name).setName(newname);
+        this.menuHashMap.get(name).setPrice(price);
         return "Sucess";
     }
 
